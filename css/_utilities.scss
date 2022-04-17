@@ -1,0 +1,76 @@
+.btn {
+  background-color: white;
+  color: black;
+  padding: 0.4em 1em;
+  display: inline-block;
+  margin-right: 1em;
+
+  transition: 0.4s;
+  &:hover {
+    transform: translateY(0.4em);
+  }
+
+  &.outline {
+    background: none;
+    color: white;
+    border: 0.5px solid whitesmoke;
+  }
+}
+.ctas {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+.flex-s {
+  @extend .flex-c;
+  justify-content: start;
+}
+.flex-col {
+  @extend .flex-c;
+  align-items: start;
+  flex-direction: column;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  margin: 2em 0;
+}
+
+.sm {
+  font-size: 1em;
+}
+
+.txt-center {
+  text-align: center;
+  * {
+    text-align: center;
+  }
+}
+
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: em;
+}
+
+p {
+  font-size: 2em;
+}
+
+a {
+  font-size: 1.4em;
+  white-space: nowrap;
+}
+
+.flex {
+  @extend .flex-c;
+}

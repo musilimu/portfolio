@@ -1,0 +1,155 @@
+ul {
+  list-style-type: none;
+}
+
+.links {
+  display: flex;
+
+  a {
+    font-size: 1.4em;
+    padding: 1em;
+    transition: 0.4s;
+    &:hover {
+      background-color: rgba(0, 89, 255, 0.233);
+    }
+  }
+}
+
+main {
+  min-height: calc(100vh - 70px);
+  @extend .flex-c;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+.card {
+  padding: 1.5em;
+  transition: 0.4s;
+  background-color: rgba(255, 228, 196, 0.13);
+  a.btn {
+    font-size: 1.2em;
+  }
+
+  &:hover {
+    transform: scale(1.09);
+  }
+}
+
+.input {
+  position: relative;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+}
+
+footer {
+  padding: 100px 0;
+
+  .flex-c {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  a {
+    padding: 0 1em;
+  }
+}
+
+nav,
+footer {
+  background: rgba(75, 74, 74, 0.534);
+  @extend .flex-c;
+  height: 70px;
+  overflow: hidden;
+  z-index: 1000;
+
+  .container {
+    @extend .flex-c;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+#about,
+#codepen,
+footer {
+  background: rgba(255, 255, 255, 0.116);
+  margin: 2em 0;
+}
+
+#about {
+  margin-top: 0;
+  img {
+    width: 100%;
+    mix-blend-mode: hard-light;
+  }
+}
+
+footer,
+#codepen {
+  margin-bottom: 0;
+}
+
+#curve {
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scale(4, 2) translateY(-15%);
+  z-index: -1;
+  animation: move 10s infinite alternate;
+}
+
+#contact {
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+  .curve-2 {
+    top: 0;
+    transform: rotate(180deg) scale(4, 2) translateY(-15%);
+    animation: move-2 10s infinite alternate;
+  }
+}
+
+/*
+   the balls moving around the screen
+*/
+
+@function randonNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
+.bubbles {
+  perspective: 5px;
+
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  pointer-events: none;
+  background: none;
+
+  i {
+    @for $i from 1 through 25 {
+      &:nth-child(#{$i}) {
+        position: absolute;
+        $diameter: randonNum(0, 100) * 1px;
+        width: $diameter;
+        height: $diameter;
+        top: randonNum(0, 100) * 1vh;
+        left: randonNum(0, 100) * 1vw;
+
+        border-radius: 50%;
+        background-color: adjust-hue(rgba(255, 0, 0, 0.15), $i * 100%);
+        animation: move-around-#{$i} 25s / $i linear infinite alternate;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@keyframes move {
+  to {
+    transform: scale(4, 2) translateX(-30%) translateY(-15%);
+  }
+}
+@keyframes move-2 {
+  to {
+    transform: rotate(180deg) scale(4, 2) translateY(-15%) translateX(-30%);
+  }
+}
+
+.bubbles {
+  i {
+    @for $i from 1 through 25 {
+      &:nth-child(#{$i}) {
+        @keyframes move-around-#{$i} {
+          to {
+            top: randonNum(0, 100) * 1vh;
+            left: randonNum(0, 100) * 1vw;
+            border-radius: 50%;
+            background-color: adjust-hue(rgba(255, 0, 0, 0.15), $i * 5%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate-around {
+  to {
+    transform: rotate(360deg);
+  }
+}

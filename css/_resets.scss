@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  background-color: black;
+  color: white;
+  font-family: "nunito", sans-serif;
+  font-size: clamp(1vmin, 16px, 2vw);
+}
+.container {
+  max-width: 96%;
+  padding: 0 2em;
+  margin: 12em auto;
+}
+a {
+  color: white;
+  text-decoration: none;
+  svg {
+    margin-right: 1em;
+  }
+}
+
+strong {
+  color: rgb(185, 253, 185);
+}

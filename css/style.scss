@@ -1,0 +1,19 @@
+@import "./resets";
+@import "./components";
+@import "./keyframes";
+@import "./utilities";
+
+#rotating-curve {
+  position: absolute;
+  width: 60vmin;
+  @for $i from 1 to 4 {
+    path:nth-child(#{$i}) {
+      fill: adjust-hue(rgba(0, 128, 0, 0.048), 10deg * $i);
+      animation: rotate-around 4s * $i linear infinite;
+    }
+  }
+  path {
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+}
