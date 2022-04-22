@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -14,7 +15,7 @@ body {
 body {
   background-color: black;
   color: white;
-  font-family: "nunito", sans-serif;
+ font-family: 'Paytone One', sans-serif;
   font-size: clamp(1vmin, 16px, 2vw);
 }
 
